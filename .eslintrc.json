@@ -1,0 +1,27 @@
+{
+  "parser": "@babel/eslint-parser",
+  "extends": [
+    "airbnb",
+    "plugin:flowtype/recommended"
+  ],
+  "plugins": [
+    "flowtype",
+    "compat"
+  ],
+  "rules": {
+    "semi": [2, "never"],
+    "no-unexpected-multiline": 2,
+    "indent": ["error", 4],  // Use tabs for indentation
+    "no-console": "warn",  // Change console.log to a warning instead of an error
+    "eol-last": ["error", "always"],  // Ensure a newline at the end of files
+    "compat/compat": 2
+  },
+  "parserOptions": {
+    "requireConfigFile": false,  // Ensure Babel doesn't require a config file
+    "ecmaVersion": 2021,         // Ensure modern ECMAScript support
+    "sourceType": "module"       // Enable ES modules (import/export syntax)
+  },
+  "env": {
+    "jest": true
+  }
+}
