@@ -1,6 +1,5 @@
 // @flow
 
-import { render } from 'react-dom'
 import { STATIC_PATH } from '../shared/config'
 
 const renderApp = (title: string) => 
