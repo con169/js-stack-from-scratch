@@ -22,6 +22,7 @@
     "sourceType": "module"       // Enable ES modules (import/export syntax)
   },
   "env": {
+    "browser": true,
     "jest": true
   }
 }
