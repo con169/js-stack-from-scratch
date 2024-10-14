@@ -1,10 +1,10 @@
 {
   "presets": [
-    "@babel/preset-env",     // Modern JavaScript
-    "@babel/preset-flow",    // Flow type annotations
-    "@babel/preset-react"    // React JSX support
+    "env",
+    "flow",
+    "react"
   ],
   "plugins": [
-    "@babel/plugin-transform-react-jsx"  // JSX transformation (can be optional if using @babel/preset-react)
+    "flow-react-proptypes"
   ]
 }
