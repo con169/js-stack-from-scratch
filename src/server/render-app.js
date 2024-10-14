@@ -1,6 +1,7 @@
 // @flow
 
-import { APP_CONTAINER_CLASS, STATIC_PATH } from '../shared/config'
+import { APP_CONTAINER_CLASS, STATIC_PATH, WDS_PORT } from '../shared/config'
+import { isProd } from '../shared/util'
 
 const renderApp = (title: string) =>
 `<!doctype html>
@@ -11,7 +12,7 @@ const renderApp = (title: string) =>
   </head>
   <body>
     <div class="${APP_CONTAINER_CLASS}"></div>
-    <script scr="${isPRod ? STATIC_PATH : `http://localhost:${WDS_PORT}/dist`}/js/bundle.js"></script>
+    <script src="${isProd ? STATIC_PATH : `http://localhost:${WDS_PORT}/dist`}/js/bundle.js"></script>
   </body>
 </html>
 `
