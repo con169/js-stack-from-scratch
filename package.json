@@ -8,11 +8,13 @@
   ],
   "scripts": {
     "start": "yarn dev:start",
-    "dev:start": "nodemon --ignore lib --exec babel-node src/server",
-    "prod:build": "rimraf lib && babel src -d lib --ignore .test.js",
+    "dev:start": "nodemon -e js,jsx --ignore lib --ignore dist --exec babel-node src/server",
+    "dev:wds": "webpack-dev-server --progress",
+    "prod:build": "rimraf lib && babel src -d lib --ignore .test.js && cross-env NODE_ENV=production webpack -p --progress",
     "prod:start": "cross-env NODE_ENV=production pm2 start lib/server && pm2 logs",
     "prod:stop": "pm2 delete server",
-    "test": "eslint src && flow && jest --coverage",
+    "lint": "eslint src webpack.config.babel.js --ext .js,.jsx",
+    "test": "yarn lint && flow && jest --coverage",
     "precommit": "yarn test",
     "prepush": "yarn test && yarn prod:build"
   },
@@ -25,7 +27,9 @@
     "@babel/preset-env": "^7.25.8",
     "@babel/preset-flow": "^7.25.7",
     "@babel/preset-react": "^7.25.7",
+    "babel-core": "^6.26.3",
     "babel-jest": "^29.7.0",
+    "babel-loader": "^9.2.1",
     "babel-node": "^0.0.1-security",
     "babel-preset-env": "^1.7.0",
     "cross-env": "^7.0.3",
@@ -44,7 +48,9 @@
     "pm2": "^5.4.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "rimraf": "^6.0.1"
+    "rimraf": "^6.0.1",
+    "webpack": "^5.95.0",
+    "webpack-dev-server": "^5.1.0"
   },
   "dependencies": {
     "babel-polyfill": "^6.26.0",
